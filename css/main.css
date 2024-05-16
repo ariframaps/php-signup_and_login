@@ -55,4 +55,9 @@ form input[type=submit] {
     background-color: rgb(76, 170, 208);
     color: white;
     padding: 12px;
+    transition-duration: .3s;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(25, 139, 184);
 }
