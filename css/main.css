@@ -1,0 +1,58 @@
+:root {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 50px;
+    gap: 50px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.forms_container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 30%;
+}
+
+.forms_container .forms {
+    border: 1px solid rgb(228, 228, 228);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 7px -5px;
+}
+
+.forms h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.forms form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input {
+    font-size: 1.2rem;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid rgb(192, 192, 192);
+    border-radius: 5px;
+    outline: none;
+}
+
+form input[type=submit] {
+    background-color: rgb(76, 170, 208);
+    color: white;
+    padding: 12px;
+}
