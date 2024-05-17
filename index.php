@@ -27,10 +27,7 @@ require_once 'includes/config_session.inc.php';
         <div class="signup_form forms">
             <h2>Signup</h2>
             <form action="includes/Signup.inc.php" method="post">
-                <?php //require_once 'includes/SignupView.inc.php' ?>
-                <input type="text" name="username" id="username" placeholder="username">
-                <input type="password" name="password" id="password" placeholder="password">
-                <input type="text" name="email" id="email" placeholder="email">
+                <?php require_once 'includes/SignupView.inc.php' ?>
                 <input type="submit" value="Signup">
             </form>
         </div>

@@ -24,12 +24,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (is_email_registered($pdo, $email)) {
             $errors['registered_email'] = 'Email is already registered!';
         }
-        // var_dump($errors);
 
         //check if there are any errors occured
         if (!empty($errors)) {
             require_once 'config_session.inc.php';
+
+            // storing the errors
             $_SESSION['signup_errors'] = $errors;
+
+            // storing users input
+            $_userInput = [
+                'username' => $username,
+                'email' => $email
+            ];
+            $_SESSION['user_input'] = $_userInput;
+
+            // redirect to home page
             header('Location:../index.php');
             die();
         }
