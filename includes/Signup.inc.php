@@ -7,20 +7,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     try {
         require_once 'dbh.inc.php';
+        require_once 'SignupModel.inc.php';
         require_once 'SignupContr.inc.php';
 
         // User input error handler
-        if (is_input_empty()) {
-
+        if (is_input_empty($username, $pwd, $email)) {
+            echo 'input empty';
+            die();
         }
-        if (is_username_taken()) {
-
+        if (is_username_taken($pdo, $username)) {
+            echo 'username taken';
+            die();
         }
-        if (is_email_registered()) {
-
+        if (is_email_invalid($email)) {
+            echo 'email invalid';
+            die();
         }
-        if (is_email_invalid) {
-
+        if (is_email_registered($pdo, $email)) {
+            echo 'email registered';
+            die();
         }
     } catch (PDOException $e) {
         Die('Query failed ' . $e->getMessage());
