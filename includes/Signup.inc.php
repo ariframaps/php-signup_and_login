@@ -27,8 +27,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo 'email registered';
             die();
         }
+
+        // create a new user if no user input exists
+        create_user($pdo, $username, $pwd, $email);
+
+        // set pdo and statement to null
+        $pdo = null;
+        $stmt = null;
+
+        // redirecting into homepage
+        header('Location:../index.php');
+        die();
     } catch (PDOException $e) {
-        Die('Query failed ' . $e->getMessage());
+        die('Query failed ' . $e->getMessage());
     }
 
 } else {

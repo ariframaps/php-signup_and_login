@@ -37,3 +37,13 @@ function is_email_registered(object $pdo, string $email)
         return false;
     }
 }
+
+function create_user(object $pdo, string $username, string $pwd, string $email)
+{
+    $options = [
+        'cost' => 12
+    ];
+    $hashedPwd = password_hash($pwd, PASSWORD_BCRYPT, $options);
+
+    insert_user($pdo, $username, $hashedPwd, $email);
+}
