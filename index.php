@@ -1,3 +1,7 @@
+<?php
+require_once 'includes/config_session.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,12 +27,23 @@
         <div class="signup_form forms">
             <h2>Signup</h2>
             <form action="includes/Signup.inc.php" method="post">
+                <?php //require_once 'includes/SignupView.inc.php' ?>
                 <input type="text" name="username" id="username" placeholder="username">
                 <input type="password" name="password" id="password" placeholder="password">
                 <input type="text" name="email" id="email" placeholder="email">
                 <input type="submit" value="Signup">
             </form>
         </div>
+
+        <!-- show error message -->
+        <?php
+        if (isset($_SESSION['signup_errors'])) {
+            foreach ($_SESSION['signup_errors'] as $error => $message) {
+                echo '<p class="failed">' . $message . '</p>';
+            }
+            unset($_SESSION['signup_errors']);
+        }
+        ?>
     </div>
 </body>
 
