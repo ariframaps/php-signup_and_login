@@ -28,7 +28,7 @@ require_once 'includes/SignupView.inc.php'
         <div class="signup_form forms">
             <h2>Signup</h2>
             <form action="includes/Signup.inc.php" method="post">
-                <?php
+                <?php // show input and input value
                 show_signup_input();
                 ?>
                 <input type="submit" value="Signup">
@@ -37,12 +37,7 @@ require_once 'includes/SignupView.inc.php'
 
         <!-- show error message -->
         <?php
-        if (isset($_SESSION['signup_errors'])) {
-            foreach ($_SESSION['signup_errors'] as $error => $message) {
-                echo '<p class="failed">' . $message . '</p>';
-            }
-            unset($_SESSION['signup_errors']);
-        }
+        show_signup_status();
         ?>
     </div>
 </body>

@@ -20,3 +20,13 @@ function show_signup_input()
 
     unset($_SESSION['user_input']);
 }
+
+function show_signup_status()
+{
+    if (isset($_SESSION['signup_errors'])) {
+        foreach ($_SESSION['signup_errors'] as $error => $message) {
+            echo '<p class="failed">' . $message . '</p>';
+        }
+        unset($_SESSION['signup_errors']);
+    }
+}
